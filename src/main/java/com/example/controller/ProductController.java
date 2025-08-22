@@ -22,9 +22,9 @@ public class ProductController {
 	
 	@PostMapping
 	public Product saveAndSendProduct(@RequestBody Product product) {
-		String apiUrl = "http://microservice2/8301/rest/api/products/date";
+		String apiUrl = "http://microservice2:8301/rest/api/products/date";
 		Product savedProduct = productService.saveProduct(product);
-		return (Product) restTemplate.postForObject(apiUrl, savedProduct, Object.class);
+		return (Product) restTemplate.postForObject(apiUrl, savedProduct, Product.class);
 		
 	}
 }
